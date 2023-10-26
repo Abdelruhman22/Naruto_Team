@@ -53,9 +53,11 @@ ErrorStateType DIO_EsSetPortValue (PORT_INDEX port, u8 value)
             // Do Nothing
         }
         break;
-
-        return Ereturn;
+	default:
+      // Do Nothing
+        
     }
+	return Ereturn;
 }
 
 ErrorStateType DIO_EsSetPinValue (Pin_t  *Pin_obj)
