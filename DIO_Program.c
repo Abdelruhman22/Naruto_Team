@@ -12,7 +12,7 @@ ErrorStateType DIO_EsSetPortValue (PORT_INDEX port, u8 value)
     case PORT_A:
         if (DDRA==0xFF)
         {
-            PORTA=0xFF;
+            PORTA=value;
             Ereturn=E_OK
         }
         else
@@ -23,7 +23,7 @@ ErrorStateType DIO_EsSetPortValue (PORT_INDEX port, u8 value)
     case PORT_B:
         if (DDRB==0xFF)
         {
-            PORTB=0xFF;
+            PORTB=value;
             Ereturn=E_OK
         }
         else
@@ -34,7 +34,7 @@ ErrorStateType DIO_EsSetPortValue (PORT_INDEX port, u8 value)
     case PORT_C:
         if (DDRC==0xFF)
         {
-            PORTC=0xFF;
+            PORTC=value;
             Ereturn=E_OK
         }
         else
@@ -45,7 +45,7 @@ ErrorStateType DIO_EsSetPortValue (PORT_INDEX port, u8 value)
     case PORT_D:
         if (DDRD==0xFF)
         {
-            PORTD=0xFF;
+            PORTD=value;
             Ereturn=E_OK
         }
         else
