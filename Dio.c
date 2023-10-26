@@ -1,3 +1,5 @@
+#include "DIO_Interface.h"
+#include "DIO_Register.h"
 
 ErrorStateType DIO_EsSetPortDirection(PORT_INDEX port, u8 direction )
 {
@@ -7,33 +9,33 @@ ErrorStateType DIO_EsSetPortDirection(PORT_INDEX port, u8 direction )
     {
 
         case PORT_A:
-            PORTA = direction;
-            Ereturn = E_OK; 
+            DDRA = direction;
+            Ereturn = E_OK;
             break;
-            
+
         case PORT_B:
-            PORTC = direction;
+            DDRB = direction;
             Ereturn = E_OK;
             break;
-            
+
         case PORT_C:
-            PORTC = direction;
+            DDRC = direction;
             Ereturn = E_OK;
             break;
-            
+
         case PORT_D:
-            PORTD = direction;
+            DDRD = direction;
             Ereturn = E_OK;
             break;
-        
+
         default :
-        
+
     }
     return Ereturn;
 }
 
 
-ErrorStateType DIO_EsSetPinValue (Pin_t  *Pin_obj)
+ErrorStateType DIO_EsSetPinDirection (Pin_t  *Pin_obj)
 {
     ErrorStateType Ereturn = E_NOT_OK;
 
