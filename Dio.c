@@ -51,12 +51,12 @@ ErrorStateType DIO_EsSetPinDirection (Pin_t  *Pin_obj)
             {
                 if (Pin_obj->Pin_Direction  ==  LOW)
                 {
-                    CLEAR_BIT(PORTA, (Pin_obj->PIN_INDEX) );        //Configure the pin to be low
+                    CLEAR_BIT(DDRA, (Pin_obj->PIN_INDEX) );        //Configure the pin to be low
                     Ereturn=E_OK;
                 }
                 else if (Pin_obj->Pin_Direction  ==  HIGH)
                 {
-                    SET_BIT(PORTA, (Pin_obj->PIN_INDEX) );        //Configure the pin to be high
+                    SET_BIT(DDRA, (Pin_obj->PIN_INDEX) );        //Configure the pin to be high
                     Ereturn=E_OK;
                 }
                 else
@@ -75,12 +75,12 @@ ErrorStateType DIO_EsSetPinDirection (Pin_t  *Pin_obj)
             {
                 if (Pin_obj->Pin_Direction == LOW)
                 {
-                    CLEAR_BIT(PORTB, (Pin_obj->PIN_INDEX) );        //Configure the pin to be low
+                    CLEAR_BIT(DDRB, (Pin_obj->PIN_INDEX) );        //Configure the pin to be low
                     Ereturn=E_OK;
                 }
                 else if (Pin_obj->Pin_Direction == HIGH)
                 {
-                    SET_BIT(PORTB, (Pin_obj->PIN_INDEX) );        //Configure the pin to be high
+                    SET_BIT(DDRB, (Pin_obj->PIN_INDEX) );        //Configure the pin to be high
                     Ereturn=E_OK;
                 }
                 else
@@ -99,12 +99,12 @@ ErrorStateType DIO_EsSetPinDirection (Pin_t  *Pin_obj)
             {
                 if (Pin_obj->Pin_Direction == LOW)
                 {
-                    CLEAR_BIT(PORTC, (Pin_obj->PIN_INDEX) );        //Configure the pin to be low
+                    CLEAR_BIT(DDRC, (Pin_obj->PIN_INDEX) );        //Configure the pin to be low
                     Ereturn=E_OK;
                 }
                 else if (Pin_obj->Pin_Direction == HIGH)
                 {
-                    SET_BIT(PORTC, (Pin_obj->PIN_INDEX) );        //Configure the pin to be high
+                    SET_BIT(DDRC, (Pin_obj->PIN_INDEX) );        //Configure the pin to be high
                     Ereturn=E_OK;
                 }
                 else
@@ -119,16 +119,16 @@ ErrorStateType DIO_EsSetPinDirection (Pin_t  *Pin_obj)
         }
         else if(Pin_obj->PORT_INDEX == PORT_D)
         {
-			if (READ_BIT (DDRC, (Pin_obj->PIN_INDEX) )
+			if (READ_BIT (DDRD, (Pin_obj->PIN_INDEX) )
             {
                 if (Pin_obj->Pin_Direction == LOW)
                 {
-                    CLEAR_BIT(PORTC, (Pin_obj->PIN_INDEX) );        //Configure the pin to be low
+                    CLEAR_BIT(DDRD, (Pin_obj->PIN_INDEX) );        //Configure the pin to be low
                     Ereturn=E_OK;
                 }
                 else if (Pin_obj->Pin_Direction == HIGH)
                 {
-                    SET_BIT(PORTC, (Pin_obj->PIN_INDEX) );        //Configure the pin to be high
+                    SET_BIT(DDRD, (Pin_obj->PIN_INDEX) );        //Configure the pin to be high
                     Ereturn=E_OK;
                 }
                 else
