@@ -1,6 +1,9 @@
 #include "DIO_Interface.h"
 #include "DIO_Register.h"
-
+#define SET_BIT(REG,BIT)       ( REG=REG | (1<<BIT) )
+#define CLR_BIT(REG,BIT)       ( REG=REG & (~(1<<BIT)) )
+#define READ_BIT(REG,BIT)          ( (REG>>BIT)&1 )
+#define TOOGLE_BIT(REG_BIT)    ( REG= REG ^ (1<<BIT) )
 
 ErrorStateType DIO_EsSetPortValue (PORT_INDEX port, u8 value)
 {
@@ -232,4 +235,72 @@ ErrorStateType DIO_EsTogglePin (Pin_t  *Pin_obj)
 		}
 	}
 	return Ereturn;
+}
+
+ErrorStateType DIO_EsReadPinValue (Pin_t  Pin_obj , PinValue_t *value )
+{
+      ErrorStateType Ereturn=E_OK;
+   
+   if(Pin_obj.PORT_INDEX <= PORT_D && Pin_obj.PIN_INDEX <=PINA7)
+   {
+switch(Pin_obj.PORT_INDEX)
+{
+case PORT_A:
+ *value = READ_BIT(PORTA,Pin_obj.PIN_INDEX);
+break;
+
+case PORT_B:
+ *value = READ_BIT(PORTB,Pin_obj.PIN_INDEX);
+break;
+case PORT_C:
+ *value = READ_BIT(PORTC,Pin_obj.PIN_INDEX);
+break;
+
+case PORT_D:
+ *value = READ_BIT(PORTD,Pin_obj.PIN_INDEX);
+break;
+
+default:
+// Do Nothing
+break;
+}
+   }
+else
+   {
+      Ereturn=E_NOT_OK;
+   }
+return Ereturn;
+}
+
+ErrorStateType DIO_EsReadPortValue(PORT_INDEX port , u8 * return_value )
+{
+      ErrorStateType Ereturn=E_OK;
+   
+   if(port <= PORT_D)
+   {
+    switch (port)
+    {
+
+    case PORT_A:
+            *return_value = PORTA;
+        break;
+
+        case PORT_B:
+            *return_value = PORTB;
+        break;
+
+        case PORT_C:
+            *return_value= PORTC;
+        break;
+
+     case PORT_D:
+            *return_value = PORTD;
+        break;
+    }
+   }
+else
+   {
+      Ereturn=E_NOT_OK;
+   }
+return Ereturn;
 }
