@@ -1,10 +1,3 @@
-/*
- * ECU_7SEGMETN_PROGRAM.c
- *
- *  Created on: Oct 22, 2023
- *      Author: mohamed
- */
-
 
 #include"../ECU_7Segment_HEADERS/ECU_7segment_Interface.h"
 Std_ReturnType ECU_7Seg_Init(ssd_t * ssd){
